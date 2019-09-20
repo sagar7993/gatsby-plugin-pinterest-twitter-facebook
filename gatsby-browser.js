@@ -1,7 +1,3 @@
-const PINTEREST_SCRIPT_URL = 'https://assets.pinterest.com/js/pinit.js';
-const TWITTER_SCRIPT_URL = 'https://platform.twitter.com/widgets.js';
-const FACEBOOK_SCRIPT_URL = 'https://connect.facebook.net/en_US/sdk.js#xfbml=1&version=v4.0';
-
 const injectPreloadLink = (url) => {
 	try {
 		const link = document.createElement('link');
@@ -17,6 +13,7 @@ const injectPreloadLink = (url) => {
 const injectPinterestScript = (pinterestOptions) => {
 	try {
 		if (pinterestOptions && pinterestOptions.enable) {
+			const PINTEREST_SCRIPT_URL = 'https://assets.pinterest.com/js/pinit.js';
 			const script = document.createElement('script');
 			script.type = 'text/javascript';
 			script.setAttribute('async', 'async');
@@ -40,6 +37,7 @@ const injectPinterestScript = (pinterestOptions) => {
 const injectTwitterScript = (twitterOptions) => {
 	try {
 		if (twitterOptions && twitterOptions.enable && twitterOptions.containerSelector && document.querySelector(twitterOptions.containerSelector) && twitterOptions.handle) {
+			const TWITTER_SCRIPT_URL = 'https://platform.twitter.com/widgets.js';
 			const script = document.createElement('script');
 			script.type = 'text/javascript';
 			script.setAttribute('async', 'async');
@@ -61,6 +59,7 @@ const injectTwitterScript = (twitterOptions) => {
 const injectFacebookScript = (facebookOptions) => {
 	try {
 		if (facebookOptions && facebookOptions.enable && facebookOptions.containerSelector && facebookOptions.profile) {
+			const FACEBOOK_SCRIPT_URL = 'https://connect.facebook.net/en_US/sdk.js#xfbml=1&version=v4.0';
 			const script = document.createElement('script');
 			script.type = 'text/javascript';
 			script.setAttribute('async', 'async');

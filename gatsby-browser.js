@@ -81,9 +81,17 @@ exports.onClientEntry = (_args, pluginOptions) => {
 		if (pluginOptions && pluginOptions.pinterest && pluginOptions.pinterest.enable) {
 			injectPinterestScript(pluginOptions.pinterest);
 		}
+	} catch (error) {
+		console.error(error);
+	}
+	try {
 		if (pluginOptions && pluginOptions.twitter && pluginOptions.twitter.enable) {
 			injectTwitterScript(pluginOptions.twitter);
 		}
+	} catch (error) {
+		console.error(error);
+	}
+	try {
 		if (pluginOptions && pluginOptions.facebook && pluginOptions.facebook.enable) {
 			injectFacebookScript(pluginOptions.facebook);
 		}

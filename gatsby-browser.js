@@ -47,8 +47,8 @@ const injectTwitterScript = (twitterOptions) => {
 			script.setAttribute('src', TWITTER_SCRIPT_URL);
 			injectPreloadLink(TWITTER_SCRIPT_URL);
 			const twitterContainer = document.querySelector(twitterOptions.containerSelector);
-			const twitterFollowButton = `<a href="https://twitter.com/${twitterOptions.handle}?ref_src=twsrc%5Etfw" class="twitter-follow-button" data-show-count="true">Follow @${twitterOptions.handle}</a>`;
-			const twitterTimeline = `<a class="twitter-timeline" href="https://twitter.com/${twitterOptions.handle}" data-chrome="noheader nofooter noborders noscrollbar transparent" data-tweet-limit="1">`;
+			const twitterFollowButton = `<a href="https://twitter.com/${twitterOptions.handle}?ref_src=twsrc%5Etfw" class="twitter-follow-button" data-show-count="true" target="_blank" rel="noopenernoopener noreferrer nofollow">Follow @${twitterOptions.handle}</a>`;
+			const twitterTimeline = `<a class="twitter-timeline" href="https://twitter.com/${twitterOptions.handle}" data-chrome="noheader nofooter noborders noscrollbar transparent" data-tweet-limit="1" target="_blank" rel="noopenernoopener noreferrer nofollow">`;
 			twitterContainer.insertAdjacentHTML('beforeend', twitterFollowButton);
 			twitterContainer.insertAdjacentHTML('beforeend', twitterTimeline);
 			document.getElementsByTagName('head')[0].appendChild(script);
@@ -70,7 +70,7 @@ const injectFacebookScript = (facebookOptions) => {
 			const facebookContainer = document.querySelector(facebookOptions.containerSelector);
 			const facebookTimeline = `<div class="fb-page" data-href="https://www.facebook.com/${facebookOptions.profile}/" data-tabs="timeline" data-width="" data-height="" data-small-header="false" data-adapt-container-width="true" data-hide-cover="false" data-show-facepile="true">
 				<blockquote cite="https://www.facebook.com/${facebookOptions.profile}/" class="fb-xfbml-parse-ignore">
-					<a href="https://www.facebook.com/${facebookOptions.profile}/">${facebookOptions.profile}</a>
+					<a href="https://www.facebook.com/${facebookOptions.profile}/" target="_blank" rel="noopenernoopener noreferrer nofollow">${facebookOptions.profile}</a>
 				</blockquote>
 			</div>`
 			facebookContainer.insertAdjacentHTML('beforeend', facebookTimeline);
@@ -104,7 +104,7 @@ const injectSocialScripts = (pluginOptions) => {
 		} catch (error) {
 			console.error(error);
 		}
-	}, 2000);
+	}, 1000);
 }
 
 exports.onRouteUpdate = (args, pluginOptions) => {

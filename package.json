@@ -1,0 +1,28 @@
+{
+  "name": "gatsby-plugin-pinterest-twitter-facebook",
+  "description": "Load the Pinterest, Twitter and Facebook JavaScript to let users save images to their Pinterest boards on image hover, load Twitter timeline, and load Facebook like button",
+  "version": "1.0.0",
+  "author": "Sagar Jain <sagar7993@gmail.com>",
+  "bugs": {
+    "url": "https://github.com/sagar7993/gatsby-plugin-pinterest-twitter-facebook/issues"
+  },
+  "homepage": "https://github.com/sagar7993/gatsby-plugin-pinterest-twitter-facebook",
+  "keywords": [
+    "gatsby",
+    "gatsby-plugin",
+    "pinterest-widget",
+    "pinterest-save",
+    "gatsby-plugin-pinterest-twitter-facebook",
+    "facebook-widget",
+    "facebook-like-button",
+    "facebook-profile",
+    "twitter-widget",
+    "twitter-timeline"
+  ],
+  "license": "MIT",
+  "main": "index.js",
+  "peerDependencies": {
+    "gatsby": "^2.15.19"
+  },
+  "repository": "https://github.com/sagar7993/gatsby-plugin-pinterest-twitter-facebook"
+}

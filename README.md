@@ -85,4 +85,4 @@ Visit [Pinterest Docs](https://help.pinterest.com/en/business/article/prevent-sa
 
 ## Contribute
 
-Fork this repo and make a PR!
+Fork this repo and make a PR.

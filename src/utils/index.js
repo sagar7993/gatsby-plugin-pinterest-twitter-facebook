@@ -49,8 +49,7 @@ const injectTwitterScript = (twitterOptions) => {
 			const twitterContainer = document.querySelector(twitterOptions.containerSelector);
 			const twitterFollowButton = `<a href="https://twitter.com/${twitterOptions.handle}?ref_src=twsrc%5Etfw" class="twitter-follow-button" data-show-count="true" target="_blank" rel="noopenernoopener noreferrer nofollow">Follow @${twitterOptions.handle}</a>`;
 			const twitterTimeline = `<a class="twitter-timeline" href="https://twitter.com/${twitterOptions.handle}" data-chrome="noheader nofooter noborders noscrollbar transparent" data-tweet-limit="1" target="_blank" rel="noopenernoopener noreferrer nofollow">`;
-			twitterContainer.insertAdjacentHTML('beforeend', twitterFollowButton);
-			twitterContainer.insertAdjacentHTML('beforeend', twitterTimeline);
+			twitterContainer.innerHTML = `${(twitterOptions.showFollowButton ? twitterFollowButton : '')}${(twitterOptions.showTimeline ? twitterTimeline : '')}`;
 			document.head.appendChild(script);
 		}
 	} catch (error) {
@@ -73,7 +72,7 @@ const injectFacebookScript = (facebookOptions) => {
 					<a href="https://www.facebook.com/${facebookOptions.profile}/" target="_blank" rel="noopenernoopener noreferrer nofollow">${facebookOptions.profile}</a>
 				</blockquote>
 			</div>`
-			facebookContainer.insertAdjacentHTML('beforeend', facebookTimeline);
+			facebookContainer.innerHTML = facebookTimeline;
 			document.head.appendChild(script);
 		}
 	} catch (error) {

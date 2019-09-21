@@ -21,6 +21,9 @@ plugins: [
   {
     resolve: `gatsby-plugin-pinterest-twitter-facebook`,
     options: {
+      // Use this to control how long you want this plugin to wait before initializing the Facebook and Twitter scripts
+      // By default, this plugin will wait 1 second before initializing the social widgets to ensure that the page loads and the container elements for these widgets are created in the DOM
+      delayTimer: 1000 // default
       pinterest: {
         // Set this to false if you want to disable pinterest
         enable: true, // default

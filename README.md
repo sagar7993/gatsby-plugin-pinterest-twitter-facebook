@@ -42,11 +42,27 @@ plugins: [
         // Set this to the twitter handle you want to use
         // Do not include `@` symbol here
         // If you do not define this, twitter timeline and follow button will not work
-        handle: null,
+        handle: null, // default
         // Set this to false if you do not want to show follow button
-        showFollowButton: true // default
+        showFollowButton: true, // default
         // Set this to false if you do not want to show timeline
-        showTimeline: true // default
+        showTimeline: true, // default
+        // Set this to false if you do not want to show followers count
+        // This only applies if `showLikeButton` is set to true
+        showFollowerCount: true, // default
+        // Set this to the number of most recent tweets you want to display in the timeline
+        // This only applies if `showTimeline` is set to true
+        timelineTweetCount: 1, // default
+        //	Hides the timeline header. Implementing sites must add their own Twitter attribution, link to the source timeline, and comply with other Twitter display requirements.
+        noHeader: true, // default
+        // Hides the timeline footer and Tweet composer link, if included in the timeline widget type.
+        noFooter: true, // default
+        // Removes all borders within the widget including borders surrounding the widget area and separating Tweets.
+        noBorders: true, // default
+        // Crops and hides the main timeline scrollbar, if visible. Please consider that hiding standard user interface components can affect the accessibility of your website.
+        noScrollbar: true, // default
+        // Removes the widget’s background color.
+        transparent: true // default
       }
       facebook: {
         // Set this to false if you want to disable facebook
@@ -58,11 +74,21 @@ plugins: [
         // Set this to the facebook profile or facebook page name you want to use
         // If you do not define this, facebook timeline and like button will not work
         // Do not include `@` symbol here
-        profile: null,
-        // Set this to false if you do not want to show like button
-        showLikeButton: true // default
-        // Set this to false if you do not want to show timeline
-        showTimeline: true // default
+        profile: null, // default
+        // The pixel width of the plugin. Min. is 180 & Max. is 500
+        width: 340, // default
+        // The pixel height of the plugin. Min. is 70
+        height: 500, // default
+        // Tabs to render i.e. timeline, events, messages. Use a comma-separated list to add multiple tabs, i.e. timeline, events.
+        tabs: 'timeline', // default
+        // Hide cover photo in the header
+        hideCover: false, // default
+        // Show profile photos when friends like this
+        showFacepile: true, // default
+        // Use the small header instead
+        smallHeader: false, // default
+        // Try to fit inside the container width
+        adaptContainerWidth: true // default
       }
     }
   }

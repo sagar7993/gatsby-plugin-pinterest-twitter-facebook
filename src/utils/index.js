@@ -39,7 +39,7 @@ const injectPinterestScript = (pinterestOptions) => {
 
 const injectTwitterScript = (twitterOptions) => {
 	try {
-		if (twitterOptions && twitterOptions.enable && twitterOptions.containerSelector && document.querySelector(twitterOptions.containerSelector) && twitterOptions.handle) {
+		if (twitterOptions && twitterOptions.enable === true && twitterOptions.containerSelector && twitterOptions.containerSelector.length > 0 && document.querySelector(twitterOptions.containerSelector) && twitterOptions.handle && twitterOptions.handle.length > 0) {
 			const script = document.createElement('script');
 			script.type = 'text/javascript';
 			script.setAttribute('async', 'async');
@@ -47,8 +47,8 @@ const injectTwitterScript = (twitterOptions) => {
 			script.setAttribute('src', TWITTER_SCRIPT_URL);
 			injectPreloadLink(TWITTER_SCRIPT_URL);
 			const twitterContainer = document.querySelector(twitterOptions.containerSelector);
-			const twitterFollowButton = `<a href="https://twitter.com/${twitterOptions.handle}?ref_src=twsrc%5Etfw" class="twitter-follow-button" data-show-count="true" target="_blank" rel="noopenernoopener noreferrer nofollow">Follow @${twitterOptions.handle}</a>`;
-			const twitterTimeline = `<a class="twitter-timeline" href="https://twitter.com/${twitterOptions.handle}" data-chrome="noheader nofooter noborders noscrollbar transparent" data-tweet-limit="1" target="_blank" rel="noopenernoopener noreferrer nofollow">`;
+			const twitterFollowButton = `<a href="https://twitter.com/${twitterOptions.handle}?ref_src=twsrc%5Etfw" class="twitter-follow-button" data-show-count="${(twitterOptions.showFollowerCount === true) ? 'true' : 'false'}" target="_blank" rel="noopenernoopener noreferrer nofollow">Follow @${twitterOptions.handle}</a>`;
+			const twitterTimeline = `<a class="twitter-timeline" href="https://twitter.com/${twitterOptions.handle}" data-chrome="${(twitterOptions.noHeader === true) ? 'noheader' : ''} ${(twitterOptions.noFooter === true) ? 'nofooter' : ''} ${(twitterOptions.noBorders === true) ? 'noborders' : ''} ${(twitterOptions.noScrollbar === true) ? 'noscrollbar' : ''} ${(twitterOptions.transparent === true) ? 'transparent' : ''}" data-tweet-limit="${(twitterOptions.timelineTweetCount && typeof twitterOptions.timelineTweetCount === 'number' && twitterOptions.timelineTweetCount > 0) ? twitterOptions.timelineTweetCount : '1'}" target="_blank" rel="noopenernoopener noreferrer nofollow">@${twitterOptions.handle}'s Timeline</a>`;
 			twitterContainer.innerHTML = `${(twitterOptions.showFollowButton ? twitterFollowButton : '')}${(twitterOptions.showTimeline ? twitterTimeline : '')}`;
 			document.head.appendChild(script);
 		}
@@ -59,7 +59,7 @@ const injectTwitterScript = (twitterOptions) => {
 
 const injectFacebookScript = (facebookOptions) => {
 	try {
-		if (facebookOptions && facebookOptions.enable && facebookOptions.containerSelector && document.querySelector(facebookOptions.containerSelector) && facebookOptions.profile) {
+		if (facebookOptions && facebookOptions.enable === true && facebookOptions.containerSelector && facebookOptions.containerSelector.length > 0 && document.querySelector(facebookOptions.containerSelector) && facebookOptions.profile && facebookOptions.profile.length > 0) {
 			const script = document.createElement('script');
 			script.type = 'text/javascript';
 			script.setAttribute('async', 'async');
@@ -67,7 +67,7 @@ const injectFacebookScript = (facebookOptions) => {
 			script.setAttribute('src', FACEBOOK_SCRIPT_URL);
 			injectPreloadLink(FACEBOOK_SCRIPT_URL);
 			const facebookContainer = document.querySelector(facebookOptions.containerSelector);
-			const facebookTimeline = `<div class="fb-page" data-href="https://www.facebook.com/${facebookOptions.profile}/" data-tabs="timeline" data-width="" data-height="" data-small-header="false" data-adapt-container-width="true" data-hide-cover="false" data-show-facepile="true">
+			const facebookTimeline = `<div class="fb-page" data-href="https://www.facebook.com/${facebookOptions.profile}/" data-tabs="${(facebookOptions.tabs && facebookOptions.tabs.length > 0) ? facebookOptions.tabs : 'timeline'}" data-width="${(facebookOptions.width && typeof facebookOptions.width === 'number' && facebookOptions.width >= 180 && facebookOptions.width <= 500) ? facebookOptions.width : ''}" data-height="${(facebookOptions.height && typeof facebookOptions.height === 'number' && facebookOptions.height >= 70) ? facebookOptions.height : ''}" data-small-header="${(facebookOptions.smallHeader === true) ? 'true' : 'false'}" data-adapt-container-width="${(facebookOptions.adaptContainerWidth === true) ? 'true' : 'false'}" data-hide-cover="${(facebookOptions.hideCover === true) ? 'true' : 'false'}" data-show-facepile="${(facebookOptions.showFacepile === true) ? 'true' : 'false'}">
 				<blockquote cite="https://www.facebook.com/${facebookOptions.profile}/" class="fb-xfbml-parse-ignore">
 					<a href="https://www.facebook.com/${facebookOptions.profile}/" target="_blank" rel="noopenernoopener noreferrer nofollow">${facebookOptions.profile}</a>
 				</blockquote>

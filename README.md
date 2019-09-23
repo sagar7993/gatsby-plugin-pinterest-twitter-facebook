@@ -112,29 +112,31 @@ plugins: [
 
 ## Pinterest
 
-This plugin will add the Pinterest Save button on ALL images. To exclude any specific image, just add the following data attribute to your image HTML tag
+- This plugin will add the Pinterest Save button on ALL images. To exclude any specific image, just add the following data attribute to your image HTML tag
 
-```<img src={{ImageSource}} data-pin-nopin="true" />```
+    ```<img src={{ImageSource}} data-pin-nopin="true" />```
 
-Check [Pinterest Docs](https://developers.pinterest.com/docs/widgets/save/) for more customization options and examples.
+- If you don't want people to save things to Pinterest from your website, just paste this code into the <head> section of any page on your site:
+
+    ```<meta name="pinterest" content="nopin" />```
+    
+    When someone tries to save things to Pinterest from your site, they'll see: "This site doesn't allow saving to Pinterest. Please contact the owner with any questions. Thanks for visiting!"
+
+    Check out this Pinterest [article](https://help.pinterest.com/en/business/article/prevent-saves-to-pinterest-from-your-site) for more information.
+
+Check out [Pinterest Docs](https://developers.pinterest.com/docs/widgets/save/) for more customization options and examples.
 
 ## Twitter
 
-Check [Twitter Docs](https://developer.twitter.com/en/docs/twitter-for-websites/timelines/overview) for more customization options and examples.
+Check out [Twitter Docs](https://developer.twitter.com/en/docs/twitter-for-websites/timelines/overview) for more customization options and examples.
 
 ## Facebook
 
-Check [Facebook Docs](https://developers.facebook.com/docs/plugins/page-plugin/) for more customization options and examples.
+Check out [Facebook Docs](https://developers.facebook.com/docs/plugins/page-plugin/) for more customization options and examples.
 
 ### Note
 
-If you don't want people to save things to Pinterest from your website, just paste this code into the <head> section of any page on your site:
-
-```<meta name="pinterest" content="nopin" />```
-
-When someone tries to save things to Pinterest from your site, they'll see: "This site doesn't allow saving to Pinterest. Please contact the owner with any questions. Thanks for visiting!"
-
-Visit [Pinterest Docs](https://help.pinterest.com/en/business/article/prevent-saves-to-pinterest-from-your-site) for more customization options and examples.
+This plugin has certain accessibility related features built-in, such as adding title tag to iframes, alt tag to images etc. so that the accessibility score of the lighthouse audit of your website is not affected. If you feel there's room for improvement, feel free to contribute.
 
 ## Contribute
 

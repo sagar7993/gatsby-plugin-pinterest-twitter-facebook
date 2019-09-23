@@ -54,6 +54,16 @@ plugins: [
         // Set this to the number of most recent tweets you want to display in the timeline
         // This only applies if `showTimeline` is set to true
         timelineTweetCount: 1, // default
+        // The pixel width of the plugin as a number
+        // Do not include units such as 'px', 'rem', '%' etc here
+        // Minimum allowed value is 220
+        // If you leave this value empty, then the widget will try to occupy all available width
+        width: null, // default
+        // The pixel height of the plugin as a number
+        // Do not include units such as 'px', 'rem', '%' etc here
+        // Minimum allowed value is 200
+        // If you leave this value empty, then the widget will try to occupy all available height
+        height: null, // default
         // Hides the timeline header. Implementing sites must add their own Twitter attribution, link to the source timeline, and comply with other Twitter display requirements.
         noHeader: true, // default
         // Hides the timeline footer and Tweet composer link, if included in the timeline widget type.

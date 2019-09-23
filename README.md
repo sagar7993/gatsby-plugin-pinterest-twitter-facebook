@@ -23,6 +23,7 @@ plugins: [
     options: {
       // Use this to control how long you want this plugin to wait before initializing the Facebook and Twitter scripts
       // By default, this plugin will wait 1 second before initializing the social widgets to ensure that the page loads and the container elements for these widgets are created in the DOM
+      // Value should be in milliseconds
       delayTimer: 1000 // default
       pinterest: {
         // Set this to false if you want to disable pinterest
@@ -53,7 +54,7 @@ plugins: [
         // Set this to the number of most recent tweets you want to display in the timeline
         // This only applies if `showTimeline` is set to true
         timelineTweetCount: 1, // default
-        //	Hides the timeline header. Implementing sites must add their own Twitter attribution, link to the source timeline, and comply with other Twitter display requirements.
+        // Hides the timeline header. Implementing sites must add their own Twitter attribution, link to the source timeline, and comply with other Twitter display requirements.
         noHeader: true, // default
         // Hides the timeline footer and Tweet composer link, if included in the timeline widget type.
         noFooter: true, // default
@@ -75,17 +76,21 @@ plugins: [
         // If you do not define this, facebook timeline and like button will not work
         // Do not include `@` symbol here
         profile: null, // default
-        // The pixel width of the plugin. Min. is 180 & Max. is 500
+        // The pixel width of the plugin as a number
+        // Do not include units such as 'px', 'rem', '%' etc here
+        // Minimum allowed value is 180 and Maximum allowed value is 500
         width: 340, // default
-        // The pixel height of the plugin. Min. is 70
+        // The pixel height of the plugin as a number
+        // Do not include units such as 'px', 'rem', '%' etc here
+        // Minimum allowed value is 70
         height: 500, // default
         // Tabs to render i.e. timeline, events, messages. Use a comma-separated list to add multiple tabs, i.e. timeline, events.
         tabs: 'timeline', // default
         // Hide cover photo in the header
         hideCover: false, // default
-        // Show profile photos when friends like this
+        // Show profile photos when friends like this, i.e. if you are logged in to Facebook, it will show the photos of your friends who have liked this page
         showFacepile: true, // default
-        // Use the small header instead
+        // Use the small header instead, i.e show a smaller cover photo
         smallHeader: false, // default
         // Try to fit inside the container width
         adaptContainerWidth: true // default
@@ -97,7 +102,19 @@ plugins: [
 
 ## Pinterest
 
+This plugin will add the Pinterest Save button on ALL images. To exclude any specific image, just add the following data attribute to your image HTML tag
+
+```<img src={{ImageSource}} data-pin-nopin="true" />```
+
 Check [Pinterest Docs](https://developers.pinterest.com/docs/widgets/save/) for more customization options and examples.
+
+## Twitter
+
+Check [Twitter Docs](https://developer.twitter.com/en/docs/twitter-for-websites/timelines/overview) for more customization options and examples.
+
+## Facebook
+
+Check [Facebook Docs](https://developers.facebook.com/docs/plugins/page-plugin/) for more customization options and examples.
 
 ### Note
 

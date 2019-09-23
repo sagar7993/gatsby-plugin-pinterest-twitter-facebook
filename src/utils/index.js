@@ -1,6 +1,5 @@
 const PINTEREST_SCRIPT_URL = 'https://assets.pinterest.com/js/pinit.js';
 const TWITTER_SCRIPT_URL = 'https://platform.twitter.com/widgets.js';
-const FACEBOOK_SCRIPT_URL = 'https://connect.facebook.net/en_US/sdk.js#xfbml=1&version=v4.0';
 
 const injectPreloadLink = (url) => {
 	try {
@@ -47,7 +46,7 @@ const injectTwitterScript = (twitterOptions) => {
 			script.setAttribute('src', TWITTER_SCRIPT_URL);
 			injectPreloadLink(TWITTER_SCRIPT_URL);
 			const twitterContainer = document.querySelector(twitterOptions.containerSelector);
-			const twitterFollowButton = `<a href="https://twitter.com/${twitterOptions.handle}?ref_src=twsrc%5Etfw" class="twitter-follow-button" data-show-count="${(twitterOptions.showFollowerCount === true) ? 'true' : 'false'}" target="_blank" rel="noopenernoopener noreferrer nofollow">Follow @${twitterOptions.handle}</a>`;
+			const twitterFollowButton = `<a href="https://twitter.com/${twitterOptions.handle}" class="twitter-follow-button" data-show-count="${(twitterOptions.showFollowerCount === true) ? 'true' : 'false'}" target="_blank" rel="noopenernoopener noreferrer nofollow">Follow @${twitterOptions.handle}</a>`;
 			const twitterTimeline = `<a class="twitter-timeline" href="https://twitter.com/${twitterOptions.handle}" data-chrome="${(twitterOptions.noHeader === true) ? 'noheader' : ''} ${(twitterOptions.noFooter === true) ? 'nofooter' : ''} ${(twitterOptions.noBorders === true) ? 'noborders' : ''} ${(twitterOptions.noScrollbar === true) ? 'noscrollbar' : ''} ${(twitterOptions.transparent === true) ? 'transparent' : ''}" data-tweet-limit="${(twitterOptions.timelineTweetCount && typeof twitterOptions.timelineTweetCount === 'number' && twitterOptions.timelineTweetCount > 0) ? twitterOptions.timelineTweetCount : '1'}" target="_blank" rel="noopenernoopener noreferrer nofollow">@${twitterOptions.handle}'s Timeline</a>`;
 			twitterContainer.innerHTML = `${(twitterOptions.showFollowButton ? twitterFollowButton : '')}${(twitterOptions.showTimeline ? twitterTimeline : '')}`;
 			document.head.appendChild(script);
@@ -60,20 +59,9 @@ const injectTwitterScript = (twitterOptions) => {
 const injectFacebookScript = (facebookOptions) => {
 	try {
 		if (facebookOptions && facebookOptions.enable === true && facebookOptions.containerSelector && facebookOptions.containerSelector.length > 0 && document.querySelector(facebookOptions.containerSelector) && facebookOptions.profile && facebookOptions.profile.length > 0) {
-			const script = document.createElement('script');
-			script.type = 'text/javascript';
-			script.setAttribute('async', 'async');
-			script.setAttribute('defer', 'defer');
-			script.setAttribute('src', FACEBOOK_SCRIPT_URL);
-			injectPreloadLink(FACEBOOK_SCRIPT_URL);
 			const facebookContainer = document.querySelector(facebookOptions.containerSelector);
-			const facebookTimeline = `<div class="fb-page" data-href="https://www.facebook.com/${facebookOptions.profile}/" data-tabs="${(facebookOptions.tabs && facebookOptions.tabs.length > 0) ? facebookOptions.tabs : 'timeline'}" data-width="${(facebookOptions.width && typeof facebookOptions.width === 'number' && facebookOptions.width >= 180 && facebookOptions.width <= 500) ? facebookOptions.width : ''}" data-height="${(facebookOptions.height && typeof facebookOptions.height === 'number' && facebookOptions.height >= 70) ? facebookOptions.height : ''}" data-small-header="${(facebookOptions.smallHeader === true) ? 'true' : 'false'}" data-adapt-container-width="${(facebookOptions.adaptContainerWidth === true) ? 'true' : 'false'}" data-hide-cover="${(facebookOptions.hideCover === true) ? 'true' : 'false'}" data-show-facepile="${(facebookOptions.showFacepile === true) ? 'true' : 'false'}">
-				<blockquote cite="https://www.facebook.com/${facebookOptions.profile}/" class="fb-xfbml-parse-ignore">
-					<a href="https://www.facebook.com/${facebookOptions.profile}/" target="_blank" rel="noopenernoopener noreferrer nofollow">${facebookOptions.profile}</a>
-				</blockquote>
-			</div>`
-			facebookContainer.innerHTML = facebookTimeline;
-			document.head.appendChild(script);
+			const facebookTimeline = `<iframe src="https://www.facebook.com/plugins/page.php?href=https%3A%2F%2Fwww.facebook.com%2F${facebookOptions.profile}&tabs=${(facebookOptions.tabs && facebookOptions.tabs.length > 0) ? facebookOptions.tabs : 'timeline'}&width=${(facebookOptions.width && typeof facebookOptions.width === 'number' && facebookOptions.width >= 180 && facebookOptions.width <= 500) ? facebookOptions.width : ''}&height=${(facebookOptions.height && typeof facebookOptions.height === 'number' && facebookOptions.height >= 70) ? facebookOptions.height : ''}&small_header=${(facebookOptions.smallHeader === true) ? 'true' : 'false'}&adapt_container_width=${(facebookOptions.adaptContainerWidth === true) ? 'true' : 'false'}&hide_cover=${(facebookOptions.hideCover === true) ? 'true' : 'false'}&show_facepile=${(facebookOptions.showFacepile === true) ? 'true' : 'false'}" width="${(facebookOptions.width && typeof facebookOptions.width === 'number' && facebookOptions.width >= 180 && facebookOptions.width <= 500) ? facebookOptions.width : ''}" height="${(facebookOptions.height && typeof facebookOptions.height === 'number' && facebookOptions.height >= 70) ? facebookOptions.height : ''}" style="border:none;overflow:hidden" scrolling="no" frameborder="0" allowTransparency="true" allow="encrypted-media"></iframe>`
+			facebookContainer.innerHTML += facebookTimeline;
 		}
 	} catch (error) {
 		console.error(error);

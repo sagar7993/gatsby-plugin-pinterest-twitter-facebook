@@ -30,7 +30,7 @@ plugins: [
         enable: true, // default
         // Set this to true to display a larger size button
         tall: true, // default
-        // Set to true to hide the pinterest text and display only a round P button
+        // Set this to true to hide the pinterest text and display only a round 'P' button
         round: false // default
       }
       twitter: {

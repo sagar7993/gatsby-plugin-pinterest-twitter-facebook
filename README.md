@@ -57,12 +57,12 @@ plugins: [
         // The pixel width of the plugin as a number
         // Do not include units such as 'px', 'rem', '%' etc here
         // Minimum allowed value is 220
-        // If you leave this value empty, then the widget will try to occupy all available width
+        // If you leave this as null, then the widget will try to occupy all available container width
         width: null, // default
         // The pixel height of the plugin as a number
         // Do not include units such as 'px', 'rem', '%' etc here
         // Minimum allowed value is 200
-        // If you leave this value empty, then the widget will try to occupy all available height
+        // If you leave this as null, then the widget will try to occupy all available container height
         height: null, // default
         // Hides the timeline header. Implementing sites must add their own Twitter attribution, link to the source timeline, and comply with other Twitter display requirements.
         noHeader: true, // default
@@ -89,11 +89,13 @@ plugins: [
         // The pixel width of the plugin as a number
         // Do not include units such as 'px', 'rem', '%' etc here
         // Minimum allowed value is 180 and Maximum allowed value is 500
-        width: 340, // default
+        // If you leave this as null, the plugin will try to occupy all available container width
+        width: null, // default
         // The pixel height of the plugin as a number
         // Do not include units such as 'px', 'rem', '%' etc here
         // Minimum allowed value is 70
-        height: 500, // default
+        // If you leave this as null, the plugin will try to occupy all available container height
+        height: null, // default
         // Tabs to render i.e. timeline, events, messages. Use a comma-separated list to add multiple tabs, i.e. timeline, events.
         tabs: 'timeline, events, messages', // default
         // Hide cover photo in the header
@@ -102,7 +104,9 @@ plugins: [
         showFacepile: true, // default
         // Use the small header instead, i.e show a smaller cover photo
         smallHeader: false, // default
-        // Try to fit inside the container width
+        // Try to fit inside the container width on page load
+        // If the width of the parent element is bigger than the Page plugin's width it will maintain the value defined in width
+        // No Dynamic Resizing - If you want to adjust the plugin's width on window resize, you manually need to rerender the plugin.
         adaptContainerWidth: true // default
       }
     }
@@ -123,6 +127,8 @@ plugins: [
     When someone tries to save things to Pinterest from your site, they'll see: "This site doesn't allow saving to Pinterest. Please contact the owner with any questions. Thanks for visiting!"
 
     Check out this Pinterest [article](https://help.pinterest.com/en/business/article/prevent-saves-to-pinterest-from-your-site) for more information.
+
+    *P.S. If this is the behaviour you want, you probably shouldn't insert the Pinterest SDK on your page in the first place.*
 
 Check out [Pinterest Docs](https://developers.pinterest.com/docs/widgets/save/) for more customization options and examples.
 
